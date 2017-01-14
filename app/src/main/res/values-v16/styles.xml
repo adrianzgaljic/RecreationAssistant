@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="btn_main">
+        <item name="android:background">@drawable/bg_btn_add_events</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+</resources>

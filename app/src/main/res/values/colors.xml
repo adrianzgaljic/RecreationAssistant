@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="purple">#B691FF</color>
+    <color name="green">#05FFCA</color>
+    <color name="dark_blue">#241543</color>
+    <color name="bg_row_my_event_dark">#BD8E79BB</color>
+    <color name="bg_row_my_event_ligth">#4A8E79BB</color>
+    <color name="bg_dialog">#E30D0028</color>
+    <color name="bg_event_complete">#ED8E79BB</color>
+
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+
+    <!--our detail accent colors -->
+    <color name="detail_accent_pane_background">#455A64</color>
+    <color name="detail_accent_label">#90A4AE</color>
+
+    <!-- the activated state color for a forecast list item -->
+    <color name="activated">#E0E0E0</color>
+</resources>

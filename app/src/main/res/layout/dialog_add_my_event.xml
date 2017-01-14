@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_dialog">
+
+        <TextView
+            android:id="@+id/tv_add_my_events_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/tv_add_my_events_title_vertical_margin"
+            android:layout_marginTop="@dimen/tv_add_my_events_title_vertical_margin"
+            android:text="@string/str_add_my_event"
+            android:textSize="@dimen/tv_add_my_events_title_font_size" />
+
+        <ImageButton
+            android:id="@+id/ib_add_my_events_close"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_alignBottom="@id/tv_add_my_events_title"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/tv_add_my_events_title"
+            android:background="@null"
+            android:src="@drawable/ic_close" />
+
+        <EditText
+            android:id="@+id/et_add_my_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_below="@id/tv_add_my_events_title"
+            android:hint="@string/hint_et_add_my_event"
+            android:padding="16dp" />
+
+        <DatePicker
+            android:id="@+id/dp_my_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_add_my_event" />
+
+        <Button
+            android:id="@+id/btn_add_my_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dp_my_event"
+            android:text="@string/str_add_my_event"
+            android:textAllCaps="false" />
+
+    </RelativeLayout>
+
+
+</ScrollView>

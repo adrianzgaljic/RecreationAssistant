@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_logo_my_events"
+        android:layout_width="192dp"
+        android:layout_height="192dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="84dp"/>
+
+    <Button
+        android:background="@drawable/bg_btn_add_events"
+        android:id="@+id/button_add_my_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-thin"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/iv_logo_my_events"
+        android:text="@string/button_add_event"
+        android:textAllCaps="false"
+        android:layout_margin="24dp"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textSize="@dimen/btn_add_my_events_font_size"/>
+
+</RelativeLayout>

@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jularic.dominik.recreationassistant.MainActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <ImageView
+        android:id="@+id/iv_login_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_events"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/button_events"
+                style="@style/btn_main" />
+
+            <Button
+                android:id="@+id/btn_my_events"
+                style="@style/btn_main"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/button_my_events"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_statistics"
+                style="@style/btn_main"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_statistics" />
+
+            <Button
+                android:id="@+id/btn_weather"
+                style="@style/btn_main"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_weather"/>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_you_tube"
+                style="@style/btn_main"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_you_tube" />
+
+            <Button
+                android:id="@+id/btn_gpx"
+                style="@style/btn_main"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/gpx" />
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/button_logout"
+        style="@style/btn_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/button_logout"
+        android:onClick="logout"/>
+
+</RelativeLayout>

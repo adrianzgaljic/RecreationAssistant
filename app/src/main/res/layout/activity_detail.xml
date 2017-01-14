@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar_weather_detail"
+        layout="@layout/toolbar" />
+
+
+    <ImageView
+        android:id="@+id/iv_detail_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar_weather_detail"/>
+
+    <TextView
+        android:id="@+id/tv_display_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:layout_below="@id/toolbar_weather_detail"/>
+
+</RelativeLayout>

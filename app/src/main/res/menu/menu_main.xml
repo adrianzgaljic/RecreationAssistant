@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_add"
+        android:icon="@drawable/ic_action_add"
+        android:title="Add"
+        app:showAsAction="always"></item>
+    <item
+        android:id="@+id/action_sort_none"
+        android:title="None"/>
+    <item
+        android:id="@+id/action_sort_descending_dete"
+        android:title="Most Time Left" />
+    <item
+        android:id="@+id/action_sort_ascending_date"
+        android:title="Least Time Left" />
+    <item
+        android:id="@+id/action_show_complete"
+        android:title="Complete" />
+    <item
+        android:id="@+id/action_show_incomplete"
+        android:title="Incomplete" />
+</menu>
