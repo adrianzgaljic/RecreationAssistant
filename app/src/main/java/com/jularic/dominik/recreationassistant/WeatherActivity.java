@@ -26,12 +26,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.jularic.dominik.recreationassistant.adapters.ForecastAdapter;
-import com.jularic.dominik.recreationassistant.adapters.ForecastAdapter.ForecastAdapterOnClickHandler;
 
 import com.jularic.dominik.recreationassistant.data.SunshinePreferences;
+import com.jularic.dominik.recreationassistant.listeners.HttpResponseListener;
 import com.jularic.dominik.recreationassistant.utilities.NetworkUtils;
 import com.jularic.dominik.recreationassistant.utilities.OpenWeatherJsonUtils;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.util.List;
 
 /*
 
@@ -53,7 +55,7 @@ import java.net.URL;
 
 
 // COMPLETED (1) Implement the proper LoaderCallbacks interface and the methods of that interface
-public class WeatherActivity extends AppCompatActivity implements
+public class WeatherActivity extends AppCompatActivity implements HttpResponseListener,
         ForecastAdapter.ForecastAdapterOnClickHandler,
         LoaderCallbacks<String[]> {
     Toolbar mToolbarWeather;
@@ -76,6 +78,7 @@ public class WeatherActivity extends AppCompatActivity implements
         mToolbarWeather = (Toolbar) findViewById(R.id.toolbar_weather);
         setSupportActionBar(mToolbarWeather);
         initBackgroundImage();
+        executeWeatherApiCall();
 
         /*
          * Using findViewById, we get a reference to our RecyclerView from xml. This allows us to
@@ -163,6 +166,11 @@ public class WeatherActivity extends AppCompatActivity implements
         Log.d(TAG, "onCreate: registering preference changed listener");
     }
 
+    private void executeWeatherApiCall() {
+        WeatherApiCall weatherApiCall = new WeatherApiCall(getWeatherForCity("zagreb"), this);
+        weatherApiCall.execute();
+    }
+
     /**
      * Instantiate and return a new Loader for the given ID.
      *
@@ -242,12 +250,6 @@ public class WeatherActivity extends AppCompatActivity implements
     @Override
     public void onLoadFinished(Loader<String[]> loader, String[] data) {
         mLoadingIndicator.setVisibility(View.INVISIBLE);
-        mForecastAdapter.setWeatherData(data);
-        if (null == data) {
-            showErrorMessage();
-        } else {
-            showWeatherDataView();
-        }
     }
 
     /**
@@ -355,7 +357,7 @@ public class WeatherActivity extends AppCompatActivity implements
 
         if (id == R.id.action_refresh) {
             invalidateData();
-            getSupportLoaderManager().restartLoader(FORECAST_LOADER_ID, null, this);
+            executeWeatherApiCall();
             return true;
         }
 
@@ -380,4 +382,37 @@ public class WeatherActivity extends AppCompatActivity implements
                 .centerCrop()
                 .into(background);
     }
+
+
+
+    public String getWeatherForCity(String city){
+
+
+        try{
+            String query = "select item.forecast from weather.forecast where woeid in (select woeid from geo.places(1) where text=\""+ city+", tx\")";
+            return   "https://query.yahooapis.com/v1/public/yql?q="+
+                    URLEncoder.encode(query, "UTF-8").replace("+", "%20").replace("%28","(").replace("%29",")")+
+                    "&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys\n";
+        } catch (Exception e){
+            Log.e("TAG", e.toString());
+        }
+
+        return  "";
+    }
+
+    @Override
+    public void onWeatherResult(List<Weather> weatherList) {
+
+        if (weatherList == null){
+            mForecastAdapter.setWeatherData(new String[]{"Could not load weather data."});
+        } else {
+            String[] weathers = new String[weatherList.size()];
+            for (int i = 0; i < weatherList.size(); i++) {
+                weathers[i] = weatherList.get(i).toString();
+            }
+            mForecastAdapter.setWeatherData(weathers);
+        }
+    }
+
+
 }
